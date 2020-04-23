@@ -1,0 +1,33 @@
+Configuration:
+  Status: INFO
+  Appenders:
+    Console:
+      Name: STDOUT
+      PatternLayout:
+        Pattern: '%d %-5p %C (%F:%L) --- %m%n'
+  Loggers:
+    Logger:
+      - Name: org.apache.flink
+        Level: INFO
+        Additivity: false
+        AppenderRef:
+          Ref: STDOUT
+      - Name: org.apache.flink.runtime.metrics
+        Level: ERROR
+        Additivity: false
+        AppenderRef:
+          Ref: STDOUT
+      - Name: org.apache.flink.runtime.metrics.groups.TaskMetricGroup
+        Level: ERROR
+        Additivity: false
+        AppenderRef:
+          Ref: STDOUT
+      - Name: groups.TaskMetricGroup
+        Level: ERROR
+        Additivity: false
+        AppenderRef:
+          Ref: STDOUT
+    Root:
+      Level: INFO
+      AppenderRef:
+        Ref: STDOUT
